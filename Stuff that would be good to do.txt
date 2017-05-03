@@ -1,0 +1,9 @@
+
+these aren't in any specific order i guess???
+
+the specific game area -  the circle thing
+player objects // movement with different keys
+timer stuff
+points
+bullets
+death
