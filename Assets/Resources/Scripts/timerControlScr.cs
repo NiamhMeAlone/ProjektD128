@@ -7,6 +7,7 @@ public class timerControlScr : MonoBehaviour {
     public bool mainTimerActive = true;
     public float timerTimer = 0;
     public float timerSecondValue = 10;
+    public float roundNumber = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -29,7 +30,14 @@ public class timerControlScr : MonoBehaviour {
         }
         if (timerSecondValue <= 0)
         {
+            Debug.Log("ROUND " + roundNumber + " OVER");
             timerSecondValue = 10;
+            roundNumber++;
+        };
+        if (roundNumber >= 11)
+        {
+            Debug.Log("GAME END");
+            roundNumber = 1;
         };
         	
 	}
