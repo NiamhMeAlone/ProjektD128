@@ -18,6 +18,7 @@ public class timerControlScr : MonoBehaviour {
 	
         if (mainTimerActive == true)
         {
+            GetComponent<TextMesh>().text = "" + timerSecondValue;
             timerTimer = timerTimer + 1 * Time.deltaTime;
         };
         if(timerTimer >= 1)
@@ -26,6 +27,10 @@ public class timerControlScr : MonoBehaviour {
             timerSecondValue--;
             Debug.Log(timerSecondValue);
         }
+        if (timerSecondValue <= 0)
+        {
+            timerSecondValue = 10;
+        };
         	
 	}
 
