@@ -8,13 +8,10 @@ public class timerControlScr : MonoBehaviour {
     public float timerTimer = 0;
     public float timerSecondValue = 10;
     public float roundNumber = 0;
-
-	// Use this for initialization
+    
 	void Start () {
-		//StartCoroutine(WaitASecond())
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
         if (mainTimerActive == true)
@@ -26,7 +23,6 @@ public class timerControlScr : MonoBehaviour {
         {
             timerTimer = 0;
             timerSecondValue--;
-            Debug.Log(timerSecondValue);
         }
         if (timerSecondValue <= 0)
         {
@@ -41,10 +37,4 @@ public class timerControlScr : MonoBehaviour {
         };
         	
 	}
-
-    //IEnumerator WaitASecond()
-    //{
-    //    yield return new WaitForSeconds(1);
-    //    StartCoroutine(WaitASecond());
-    //}
 }
