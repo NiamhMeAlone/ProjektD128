@@ -9,6 +9,7 @@ public class Player2 : MonoBehaviour
     GameObject bullet;
     public int speed;
     public float reload;
+    public bool dead = false;
     private float rTimer;
 
     void Start()
@@ -59,5 +60,11 @@ public class Player2 : MonoBehaviour
             Instantiate(bullet, transform.position, transform.rotation).GetComponent<Blast>().angle = angle;
             rTimer = reload;
         }
+    }
+
+    public void Kill()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        dead = true;
     }
 }
