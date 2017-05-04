@@ -14,11 +14,12 @@ public class timerControlScr : MonoBehaviour {
 	}
 	
 	void Update () {
-        background.GetComponent<Animator>().SetInteger("Second", timerSecondValue);
+        
         if (mainTimerActive == true)
         {
             GetComponent<TextMesh>().text = "" + timerSecondValue;
             timerTimer = timerTimer + 1 * Time.deltaTime;
+            background.GetComponent<Animator>().SetInteger("Second", timerSecondValue);
         };
         if(timerTimer >= 1)
         {
