@@ -6,14 +6,15 @@ public class timerControlScr : MonoBehaviour {
 
     public bool mainTimerActive = true;
     public float timerTimer = 0;
-    public float timerSecondValue = 10;
+    public int timerSecondValue = 10;
     public float roundNumber = 0;
+    public GameObject background;
     
 	void Start () {
 	}
 	
 	void Update () {
-	
+        background.GetComponent<Animator>().SetInteger("Second", timerSecondValue);
         if (mainTimerActive == true)
         {
             GetComponent<TextMesh>().text = "" + timerSecondValue;
