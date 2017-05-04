@@ -8,21 +8,21 @@ public class Player2 : MonoBehaviour
     Transform t;
     GameObject bullet;
     public int speed;
+    public float reload;
+    private float rTimer;
 
-    // Use this for initialization
     void Start()
     {
         t = GetComponent<Transform>();
-        bullet = (GameObject)Resources.Load("Prefabs/P1Bullet");
+        bullet = (GameObject)Resources.Load("Prefabs/P2Bullet");
+        rTimer = reload;
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         Move();
         Rotate();
-
-        Debug.Log(bullet);
+        rTimer -= Time.deltaTime;
     }
 
     private void Move()
@@ -45,6 +45,18 @@ public class Player2 : MonoBehaviour
             {
                 t.rotation = Quaternion.Euler(0, 0, Vector2.Angle(new Vector2(Input.GetAxis("FireP2H"), Input.GetAxis("FireP2V")), Vector2.up));
             }
+            Fire();
+        }
+    }
+
+    private void Fire()
+    {
+        if (rTimer <= 0)
+        {
+            Vector2 angle = new Vector2(Input.GetAxis("FireP2H"), Input.GetAxis("FireP2V"));
+            angle.Normalize();
+            Instantiate(bullet, transform.position, transform.rotation).GetComponent<P1Bullet>().angle = angle;
+            rTimer = reload;
         }
     }
 }

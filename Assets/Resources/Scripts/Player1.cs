@@ -6,8 +6,7 @@ public class Player1 : MonoBehaviour {
 
     Transform t;
     GameObject bullet;
-    public int pSpeed;
-    public int bSpeed;
+    public int speed;
     public float reload;
     private float rTimer;
     
@@ -29,8 +28,8 @@ public class Player1 : MonoBehaviour {
     private void Move()
     {
         Vector2 pos = t.position;
-        pos.x += Input.GetAxis("HorizontalP1") * Time.deltaTime * pSpeed;
-        pos.y += Input.GetAxis("VerticalP1") * Time.deltaTime * pSpeed;
+        pos.x += Input.GetAxis("HorizontalP1") * Time.deltaTime * speed;
+        pos.y += Input.GetAxis("VerticalP1") * Time.deltaTime * speed;
         t.position = pos;
     }
 
@@ -56,7 +55,7 @@ public class Player1 : MonoBehaviour {
         {
             Vector2 angle = new Vector2(Input.GetAxis("FireP1H"), Input.GetAxis("FireP1V"));
             angle.Normalize();
-            Instantiate(bullet, transform.position, transform.rotation).GetComponent<Rigidbody2D>().AddForce(angle * bSpeed, ForceMode2D.Impulse);
+            Instantiate(bullet, transform.position, transform.rotation).GetComponent<P1Bullet>().angle = angle;
             rTimer = reload;
         }
     }
