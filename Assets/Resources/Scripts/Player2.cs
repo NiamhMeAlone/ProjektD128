@@ -14,7 +14,7 @@ public class Player2 : MonoBehaviour
     void Start()
     {
         t = GetComponent<Transform>();
-        bullet = (GameObject)Resources.Load("Prefabs/P2Bullet");
+        bullet = (GameObject)Resources.Load("Prefabs/P2Shot");
         rTimer = reload;
     }
     

@@ -13,7 +13,7 @@ public class Player1 : MonoBehaviour {
     void Start ()
     {
         t = GetComponent<Transform>();
-        bullet = (GameObject)Resources.Load("Prefabs/P1Bullet");
+        bullet = (GameObject)Resources.Load("Prefabs/P1Shot");
         rTimer = reload;
 	}
 	
