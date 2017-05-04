@@ -17,12 +17,13 @@ public class Player2 : MonoBehaviour
         bullet = (GameObject)Resources.Load("Prefabs/P2Shot");
         rTimer = reload;
     }
-    
+
     void Update()
     {
         Move();
         Rotate();
         rTimer -= Time.deltaTime;
+        Debug.Log(rTimer);
     }
 
     private void Move()
@@ -55,7 +56,7 @@ public class Player2 : MonoBehaviour
         {
             Vector2 angle = new Vector2(Input.GetAxis("FireP2H"), Input.GetAxis("FireP2V"));
             angle.Normalize();
-            Instantiate(bullet, transform.position, transform.rotation).GetComponent<P1Bullet>().angle = angle;
+            Instantiate(bullet, transform.position, transform.rotation).GetComponent<Blast>().angle = angle;
             rTimer = reload;
         }
     }

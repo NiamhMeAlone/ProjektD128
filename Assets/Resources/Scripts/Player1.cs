@@ -55,7 +55,7 @@ public class Player1 : MonoBehaviour {
         {
             Vector2 angle = new Vector2(Input.GetAxis("FireP1H"), Input.GetAxis("FireP1V"));
             angle.Normalize();
-            Instantiate(bullet, transform.position, transform.rotation).GetComponent<P1Bullet>().angle = angle;
+            Instantiate(bullet, transform.position, transform.rotation).GetComponent<Blast>().angle = angle;
             rTimer = reload;
         }
     }
