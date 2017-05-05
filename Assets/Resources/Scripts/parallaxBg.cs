@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class parallaxBg : MonoBehaviour {
 
+    public int parallaxStrength = 12;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,10 +16,10 @@ public class parallaxBg : MonoBehaviour {
 
         transform.position = new Vector3(
             (GameObject.Find("Player1").GetComponent<Transform>().position.x 
-            + GameObject.Find("Player2").GetComponent<Transform>().position.x) / 12,
+            + GameObject.Find("Player2").GetComponent<Transform>().position.x) / parallaxStrength,
 
             (GameObject.Find("Player1").GetComponent<Transform>().position.y
-            + GameObject.Find("Player2").GetComponent<Transform>().position.y) / 12,
+            + GameObject.Find("Player2").GetComponent<Transform>().position.y) / parallaxStrength,
 
             transform.position.z);
     }
