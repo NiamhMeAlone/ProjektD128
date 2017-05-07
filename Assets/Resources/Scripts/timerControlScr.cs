@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class timerControlScr : MonoBehaviour {
 
+    public Sprite player1spr;
+    public Sprite player2spr;
+    public Sprite playerSilhouette;
+
     public bool mainTimerActive = true;
     public float timerTimer = 0;
-    public int timerSecondValue = 10;
+    public int timerSecondValue = 11;
     public float roundNumber = 0;
     public GameObject background;
     
@@ -26,13 +30,21 @@ public class timerControlScr : MonoBehaviour {
             timerTimer = 0;
             timerSecondValue--;
         }
+        if (timerSecondValue <= 1)
+        {
+            Debug.Log("IMPACT");
+            GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
+            GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
+        };
         if (timerSecondValue <= 0)
         {
             Debug.Log("ROUND " + roundNumber + " OVER");
-            timerSecondValue = 10;
+            GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
+            GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
+            timerSecondValue = 11;
             roundNumber++;
         };
-        if (roundNumber >= 11)
+        if (roundNumber >= 12)
         {
             Debug.Log("GAME END");
             roundNumber = 1;
