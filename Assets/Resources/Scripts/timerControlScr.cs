@@ -36,6 +36,7 @@ public class timerControlScr : MonoBehaviour {
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = false;
         };
         if (timerSecondValue <= 0)
         {
@@ -43,6 +44,7 @@ public class timerControlScr : MonoBehaviour {
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = true;
             timerSecondValue = 10;
             roundNumber++;
         };
