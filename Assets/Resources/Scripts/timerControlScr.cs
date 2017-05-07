@@ -35,12 +35,14 @@ public class timerControlScr : MonoBehaviour {
             Debug.Log("IMPACT");
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
+            GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = false;
         };
         if (timerSecondValue <= 0)
         {
             Debug.Log("ROUND " + roundNumber + " OVER");
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
+            GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
             timerSecondValue = 11;
             roundNumber++;
         };
