@@ -10,7 +10,7 @@ public class timerControlScr : MonoBehaviour {
 
     public bool mainTimerActive = true;
     public float timerTimer = 0;
-    public int timerSecondValue = 11;
+    public int timerSecondValue = 10;
     public float roundNumber = 0;
     public GameObject background;
     
@@ -43,10 +43,10 @@ public class timerControlScr : MonoBehaviour {
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
-            timerSecondValue = 11;
+            timerSecondValue = 10;
             roundNumber++;
         };
-        if (roundNumber >= 12)
+        if (roundNumber >= 11)
         {
             Debug.Log("GAME END");
             roundNumber = 1;
