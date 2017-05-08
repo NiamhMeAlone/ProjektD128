@@ -32,6 +32,8 @@ public class timerControlScr : MonoBehaviour {
     public int timerSecondValue = 10;
     public float roundNumber = 0;
     public GameObject background;
+    public GameObject player1;
+    public GameObject player2;
     
 	void Start () {
 	}
@@ -59,11 +61,12 @@ public class timerControlScr : MonoBehaviour {
         };
         if (timerSecondValue <= 0)
         {
-            Debug.Log("ROUND " + roundNumber + " OVER");
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = true;
+            player1.GetComponent<Player1>().endRound();
+            player2.GetComponent<Player2>().endRound();
             timerSecondValue = 10;
             roundNumber++;
         };

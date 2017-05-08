@@ -9,6 +9,9 @@ public class Player1 : MonoBehaviour {
     public GameObject p1Score;
     public GameObject p2Score;
     public GameObject Player2;
+    Animator animator;
+    Vector2 startPos;
+    Quaternion startRot;
     public int speed;
     public float reload;
     public bool dead = false;
@@ -26,6 +29,9 @@ public class Player1 : MonoBehaviour {
     void Start () {
         t = GetComponent<Transform>();
         bullet = (GameObject)Resources.Load("Prefabs/P1Shot");
+        animator = GetComponent<Animator>();
+        startPos = transform.position;
+        startRot = transform.rotation;
         rTimer = reload;
 	}
 	
@@ -71,7 +77,11 @@ public class Player1 : MonoBehaviour {
                 dashCooling = true;
             }
         }
-	}
+        if (Vector2.Distance(transform.position, Vector2.zero) > 3.55)
+        {
+            Kill();
+        }
+    }
     
     private void Move()
     {
@@ -113,17 +123,25 @@ public class Player1 : MonoBehaviour {
 
     public void Kill()
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<Collider2D>().enabled = false;
-        p1Score.GetComponent<boundaryScoreSprites>().playerScore--;
+        dead = true;
+        animator.SetTrigger("player1Explode");
         p2Score.GetComponent<boundaryScoreSprites>().playerScore++;
+        dead = false;
+        transform.position = startPos;
+        transform.rotation = startRot;
+        animator.SetTrigger("p1Respawn");
+    }
+
+    public void endRound()
+    {
+        Kill();
+        p1Score.GetComponent<Score2>().playerScore = 0;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("P2Bullet"))
         {
-            dead = true;
             Kill();
             Destroy(collision.gameObject);
         }
