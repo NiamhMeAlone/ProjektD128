@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class timerControlScr : MonoBehaviour {
 
-    public Sprite player1spr;
-    public Sprite player2spr;
-    public Sprite playerSilhouette;
-
     public Sprite second00;
     public Sprite second01;
     public Sprite second02;
@@ -56,16 +52,16 @@ public class timerControlScr : MonoBehaviour {
         if (timerSecondValue <= 1)
         {
             Debug.Log("IMPACT");
-            GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
-            GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = playerSilhouette;
+            GameObject.Find("Player1").GetComponent<SpriteRenderer>().enabled = false;
+            GameObject.Find("Player2").GetComponent<SpriteRenderer>().enabled = false;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = false;
             GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = false;
         };
         if (timerSecondValue <= 0)
         {
             Debug.Log("ROUND " + roundNumber + " OVER");
-            GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
-            GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
+            GameObject.Find("Player1").GetComponent<SpriteRenderer>().enabled = true;
+            GameObject.Find("Player2").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = true;
             timerSecondValue = 10;
