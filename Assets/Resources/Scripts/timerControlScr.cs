@@ -59,9 +59,14 @@ public class timerControlScr : MonoBehaviour {
         };
         if (timerSecondValue <= 0)
         {
+<<<<<<< Updated upstream
             Debug.Log("ROUND " + roundNumber + " OVER");
             GameObject.Find("Player1").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("Player2").GetComponent<SpriteRenderer>().enabled = true;
+=======
+            GameObject.Find("Player1").GetComponent<SpriteRenderer>().sprite = player1spr;
+            GameObject.Find("Player2").GetComponent<SpriteRenderer>().sprite = player2spr;
+>>>>>>> Stashed changes
             GameObject.Find("satelliteGrid").GetComponent<SpriteRenderer>().enabled = true;
             GameObject.Find("satelliteGrid2").GetComponent<SpriteRenderer>().enabled = true;
             timerSecondValue = 10;
@@ -69,7 +74,6 @@ public class timerControlScr : MonoBehaviour {
         };
         if (roundNumber >= 11)
         {
-            Debug.Log("GAME END");
             roundNumber = 1;
         };
 
